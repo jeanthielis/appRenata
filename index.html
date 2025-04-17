@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Fitness Hardcore</title>
+    <style>
+        :root {
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --light: #f1f2f6;
+            --dark: #1e272e;
+            --success: #2ed573;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .day-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💪 Plano Fitness Hardcore</h1>
+        <p>Treinos, dieta e suplementos para queimar gordura e definir o corpo!</p>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="segunda">Segunda/Quarta</button>
+            <button class="tab-btn" data-tab="terca">Terça/Quinta</button>
+            <button class="tab-btn" data-tab="quarta">Sexta</button>
+            <button class="tab-btn" data-tab="sabado">Sábado</button>
+            <button class="tab-btn" data-tab="domingo">Domingo</button>
+        </div>
+        
+        <!-- Segunda-feira -->
+        <div id="segunda" class="tab-content active">
+            <h2>🦵 Segunda: Pernas + Glúteos (Pesado + HIIT)</h2>
+            
+            <h3>🏋️‍♀️ Treino</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino1" data-day="segunda" data-type="treino">
+                <label for="seg-treino1">Agachamento Livre 4x12</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino2" data-day="segunda" data-type="treino">
+                <label for="seg-treino2">Leg Press 45 4x12 + Drop Set</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino3" data-day="segunda" data-type="treino">
+                <label for="seg-treino3">Stiff ou Levantamento Terra 4x10-12</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino4" data-day="segunda" data-type="treino">
+                <label for="seg-treino4">Cadeira Extensora 3x15 + Bulgarian Split Squat 3x12 (cada perna)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino5" data-day="segunda" data-type="treino">
+                <label for="seg-treino5">Elevacao Pelvica com Barra 4x15 (explosivo)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino6" data-day="segunda" data-type="treino">
+                <label for="seg-treino6">Abducao na Maquina 3x20 (lentro e controlado)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-treino7" data-day="segunda" data-type="treino">
+                <label for="seg-treino7">HIIT: 10min (bicicleta 30s/30s)</label>
+            </div>
+            
+            <h3>🍽️ Dieta</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-dieta1" data-day="segunda" data-type="dieta">
+                <label for="seg-dieta1">Café: Omelete + abacate</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-dieta2" data-day="segunda" data-type="dieta">
+                <label for="seg-dieta2">Almoço: Frango + batata-doce + brócolis</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-dieta3" data-day="segunda" data-type="dieta">
+                <label for="seg-dieta3">Lanche: Whey + banana</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-dieta4" data-day="segunda" data-type="dieta">
+                <label for="seg-dieta4">Jantar: Peixe + quinoa + salada</label>
+            </div>
+            
+            <h3>💊 Suplementos</h3>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-sup1" data-day="segunda" data-type="suplemento">
+                <label for="seg-sup1">Cafeína (pré-treino)</label>
+
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-sup2" data-day="segunda" data-type="suplemento">
+                <label for="seg-sup2">Whey + creatina (pós-treino)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-sup3" data-day="segunda" data-type="suplemento">
+                <label for="seg-sup3">Almoço Omega3</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="seg-sup4" data-day="segunda" data-type="suplemento">
+                <label for="seg-sup4">Noite (Colageno)</label>
+            </div>
+        </div>
+        
+        <!-- Terça-feira -->
+        <div id="terca" class="tab-content">
+            <h2>💪 Terça: Superior (Costas + Peito + Ombro) + ABS</h2>
+            
+            <h3>🏋️‍♀️ Treino</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino1" data-day="terca" data-type="treino">
+                <label for="ter-treino1">Barra Fixa 4x10</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino2" data-day="terca" data-type="treino">
+                <label for="ter-treino2">Supino Reto 4x10</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino3" data-day="terca" data-type="treino">
+                <label for="ter-treino3">Remada Curvada 3x12</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino4" data-day="terca" data-type="treino">
+                <label for="ter-treino4">Desenvolvimento Militar 3x12</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino5" data-day="terca" data-type="treino">
+                <label for="ter-treino5">Elevacao Lateral 3x15</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino5" data-day="terca" data-type="treino">
+                <label for="ter-treino5">Abdominal Prancha + toque no calcanhar 3x20 cada</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-treino6" data-day="terca" data-type="treino">
+                <label for="ter-treino6">HIIT:10min (burpess + mountain climbers)</label>
+            </div>
+            
+            <h3>🍽️ Dieta</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-dieta1" data-day="terca" data-type="dieta">
+                <label for="ter-dieta1">Café: Aveia + whey + morangos</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-dieta2" data-day="terca" data-type="dieta">
+                <label for="ter-dieta2">Almoço: Carne moída + arroz integral</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-dieta3" data-day="terca" data-type="dieta">
+                <label for="ter-dieta3">Lanche: Iorgute + castanhas</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-dieta4" data-day="terca" data-type="dieta">
+                <label for="ter-dieta4">Jantar: Omelete + spinafre</label>
+            </div>
+            
+            <h3>💊 Suplementos</h3>
+             
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-sup1" data-day="segunda" data-type="suplemento">
+                <label for="ter-sup1">Cafeína (pré-treino)</label>
+
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-sup2" data-day="segunda" data-type="suplemento">
+                <label for="ter-sup2">Whey + creatina (pós-treino)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-sup3" data-day="segunda" data-type="suplemento">
+                <label for="ter-sup3">Almoço Omega3</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="ter-sup4" data-day="segunda" data-type="suplemento">
+                <label for="ter-sup4">Noite (Colageno)</label>
+            </div>
+        </div>
+        
+        <!-- Quarta-feira -->
+        <div id="quarta" class="tab-content">
+            <h2>🔥 Sexta: Treino Metabólico (Queima Extrema)</h2>
+            
+            <h3>🏋️‍♀️ Treino (Circuito 4x)</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="qua-treino1" data-day="quarta" data-type="treino">
+                <label for="qua-treino1">Agachamento com Salto 45s</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="qua-treino2" data-day="quarta" data-type="treino">
+                <label for="qua-treino2">Burpees 45s</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="qua-treino3" data-day="quarta" data-type="treino">
+                <label for="qua-treino3">Esclador (Mountain Climbers) 45s</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="qua-treino4" data-day="quarta" data-type="treino">
+                <label for="qua-treino4">Afundo com Pulo 45s</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="qua-treino5" data-day="quarta" data-type="treino">
+                <label for="qua-treino5">Prancha com Toque no ombro 45s</label>
+            </div>
+            <p>Repetir 4x(descanso de 30s entre os rouns).</p>
+            <p>Repetir a dieta e suplementacao de segunda-feira</p>
+
+
+        </div>
+        
+        <!-- Quinta a Domingo (simplificado) -->
+        <div id="quinta" class="tab-content">
+            <h2>🦵 Quinta: Pernas + Glúteos (Repetir Segunda)</h2>
+            <p>Mesmo treino de segunda-feira.</p>
+        </div>
+        
+        <div id="sexta" class="tab-content">
+            <h2>💪 Sexta: Superior + ABS (Repetir Terça)</h2>
+            <p>Mesmo treino de terça-feira.</p>
+        </div>
+        
+        <div id="sabado" class="tab-content">
+            <h2>🚶‍♀️ Sábado: Cardio ou Mobilidade</h2>
+            <div class="checklist-item">
+                <input type="checkbox" id="sab-treino1" data-day="sabado" data-type="treino">
+                <label for="sab-treino1">Caminhada 40min + alongamento</label>
+            </div>
+        </div>
+        
+        <div id="domingo" class="tab-content">
+            <h2>📊 Domingo: Descanso e Progresso</h2>
+            <p>Dia de descanso. Anote medidas se desejar.</p>
+        </div>
+        
+        <button id="reset-btn">🔁 Reiniciar Semana</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tabs
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Load saved checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                const day = checkbox.getAttribute('data-day');
+                const type = checkbox.getAttribute('data-type');
+                const id = checkbox.id;
+                
+                const savedState = localStorage.getItem(`${day}-${type}-${id}`);
+                if (savedState === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`${day}-${type}-${id}`, checkbox.checked);
+                });
+            });
+            
+            // Reset button
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                if (confirm('Tem certeza que deseja reiniciar toda a semana?')) {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                        const day = checkbox.getAttribute('data-day');
+                        const type = checkbox.getAttribute('data-type');
+                        const id = checkbox.id;
+                        localStorage.removeItem(`${day}-${type}-${id}`);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
